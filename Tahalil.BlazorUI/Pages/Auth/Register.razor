@@ -1,0 +1,46 @@
+﻿@page "/register"
+
+
+<h3>Register</h3>
+
+<EditForm Model="user" OnValidSubmit="HandleRegistration">
+    <DataAnnotationsValidator />
+
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <InputText @bind-Value="user.Email" id="email" class="form-control" />
+        <ValidationMessage For="@(()=> user.Email)" />
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <InputText @bind-Value="user.Password" typeof="password" id="password" class="form-control" />
+        <ValidationMessage For="@(()=> user.Password)" />
+    </div>
+    <div class="form-group">
+        <label for="password">Confirm Password:</label>
+        <InputText @bind-Value="user.ConfirmPassword" typeof="password" id="password" class="form-control" />
+        <ValidationMessage For="@(()=> user.ConfirmPassword)" />
+    </div>
+    <ValidationSummary />
+
+    <button type="submit" class="btn btn-primary btn-lg"> Register </button>
+</EditForm>
+
+@code {
+    UserRegister user = new UserRegister();
+    async void HandleRegistration()
+    {
+
+        var result = await authService.Register(user);
+        if (result.Success)
+        {
+            navigationManager.NavigateTo("/login");
+        }
+        else
+        {
+            toastService.ShowError(result.Message);
+        }
+
+    }
+}

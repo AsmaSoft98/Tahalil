@@ -1,0 +1,46 @@
+﻿
+
+
+
+@*<AuthorizeView>
+    <Authorized>
+       
+        <MudButton @onclick="Logout" class="btn danger">Logout</MudButton>
+       
+    </Authorized>
+    <NotAuthorized>
+        <a href="register">Register</a>
+        <a href="Login">Log In</a>
+    </NotAuthorized>
+</AuthorizeView>*@
+
+<AuthorizeView>
+    <Authorized>
+        <MudAvatar Color="Color.Secondary" @onmouseover="() => _userMenuOpen = true">
+            @*@(User is null ? "" : User.FirstName.First())*@
+        </MudAvatar>
+        @*Hello, @context.User.Identity.Name!*@
+        <MudButton Color="Color.Inherit" OnClick="Logout">Logout</MudButton>
+        @*<MudPopover AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight"
+                    Open="@_userMenuOpen" @onmouseleave="() => _userMenuOpen = false">
+            <MudTabs Outlined="false" MinimumTabWidth="30px" Position="Position.Right">
+                <MudTabPanel Text="Edit" Icon="@Icons.Material.Filled.Edit" />
+                <MudTabPanel Text="Logout" Icon="@Icons.Material.Filled.Logout" />
+            </MudTabs>
+        </MudPopover>*@
+    </Authorized>
+    <NotAuthorized>
+        <MudButton Color="Color.Inherit" Link="/login">Login</MudButton>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    bool _userMenuOpen = false;
+    async Task Logout()
+    {
+        await localStorageService.RemoveItemAsync("authToken");
+
+        await authenticationStateProvider.GetAuthenticationStateAsync();
+        //navigationManager.NavigateTo("/");
+    }
+}

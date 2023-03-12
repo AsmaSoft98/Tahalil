@@ -1,0 +1,81 @@
+﻿@using Blazored.Toast.Configuration;
+@using System.Security.Claims;
+@inherits LayoutComponentBase
+
+<MudThemeProvider Theme="MyCustomTheme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+
+<MudLayout Class="deep-purple lighten-5" style="height:100vh">
+    <MudAppBar Elevation="0">
+        <MudText Typo="Typo.h6">Pawsome</MudText>
+        <MudSpacer />
+        <LoginDisplay />
+    </MudAppBar>
+   
+    <MudDrawer @bind-Open="_menuDrawerOpen" Elevation="1"
+               Anchor="Anchor.Start"
+               Variant="@DrawerVariant.Mini"
+               OpenMiniOnHover="true">
+        <MudDrawerHeader Class="pa-3">
+            <MudIcon Icon="@Icons.Material.Filled.AdminPanelSettings" Size="Size.Large" />
+        </MudDrawerHeader>
+        <NavMenu />
+    </MudDrawer>
+
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Large" Class="my-16 pt-16">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+
+    <MudAppBar Bottom="true" Fixed="true" Color="Color.Dark" Elevation="1">
+        <MudText Typo="Typo.caption">Designed by Team Chik</MudText>
+        <MudSpacer />
+        <div>
+            <MudText Typo="Typo.caption">Chik© 2023</MudText>
+            <MudText Typo="Typo.caption">All rights reserved</MudText>
+        </div>
+        <MudSpacer />
+        <MudText Typo="Typo.caption">[social links]</MudText>
+    </MudAppBar>>
+</MudLayout>
+
+<BlazoredToasts Position="ToastPosition.BottomRight"
+                Timeout="10"
+                IconType="IconType.FontAwesome"
+                SuccessClass="success-toast-override"
+                SuccessIcon="fa fa-thumbs-up" />
+@code {
+    bool _userMenuOpen = false;
+
+    bool _menuDrawerOpen = false;
+    void MenuDrawerToggle() => _menuDrawerOpen = !_menuDrawerOpen;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await authenticationStateProvider.GetAuthenticationStateAsync();
+
+
+    }
+
+    MudTheme MyCustomTheme = new MudTheme()
+        {
+            Palette = new Palette()
+            {
+                Primary = "#de1573",
+                Secondary = Colors.DeepPurple.Accent2,
+                Background = Colors.Grey.Lighten5,
+                AppbarBackground = Colors.Blue.Darken1,
+                DrawerBackground = "#FFF",
+                DrawerText = "rgba(0,0,0, 0.7)",
+                Success = "#06d79c",
+
+            },
+        };
+
+
+}
+
+

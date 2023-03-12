@@ -1,0 +1,139 @@
+﻿
+@page "/login"
+@layout LoginLayout
+
+ @*<EditForm Model="@user" OnValidSubmit="OnValidSubmit">
+    <MudGrid Style="height:100vh; width:100%; margin:0;">
+        <MudItem xs="12" sm="12" Class="" Style="background-image: url(img/rizki-dwi-yd1wWWilf4o-unsplash.jpg); background-repeat: no-repeat; background-size: cover; background-position: center; " />
+        <MudPaper Elevation="5" Class="pa-8 rounded-lg" Width="95%" MaxWidth="500px" Height="500px" Style="position:absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; background: linear-gradient(0deg, rgba(34,193,195,0.5021358885351015) 0%, #ddd 50%, rgba(0,212,255,0.3536765047816002) 100%);">
+            <MudText Typo="Typo.h4" Class="ma-4" Align="@Align.Center">Login</MudText>
+            <MudItem xs="10" sm="10" md="8" Class="my-4 mt-8" Style="margin:auto; display:flex;">
+                <MudTextField T="string" @bind-Value="@(user.Email)" Label="Email" Required="true" Immediate="true"  HelperText="&nbsp;" Variant="Variant.Filled" Margin="Margin.Dense" InputType="InputType.Text" Class="mud-input-controll"></MudTextField>
+            </MudItem>
+            <MudItem xs="10" sm="10" md="8" Class="mt-6" Style="margin:auto; display:flex;">
+                <MudTextField T="string" @bind-Value="@user.Password" Required="true" Label="Password" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" Margin="Margin.Dense" InputType="@PasswordInput" OnAdornmentClick="ButtonTestclick" Immediate="true" HelperText="&nbsp;" />
+            </MudItem>
+            <MudText Typo="Typo.body2" Class="" Align="@Align.Center" Style="justify-content: center;" Color="Color.Error">Messages</MudText>
+
+            <MudButton OnClick="OnValidSubmit" Variant="Variant.Filled" Class="mt-16 rounded" Color="Color.Primary" Style="width: 50%; max-width: 500px; text-transform: none; font-size: larger; margin:auto; display:flex;">Login</MudButton>
+        </MudPaper>
+    </MudGrid>
+    </EditForm>*@
+
+
+
+
+
+<MudGrid Justify="Justify.Center">
+    <MudItem xs="12" sm="12" Class="" Style="background-image: url(img/img1.jpg); background-repeat: no-repeat; background-size: cover; background-position: center; " />
+
+    <MudItem xs="12">
+        <EditForm Model="@user" OnValidSubmit="OnValidSubmit">
+            <DataAnnotationsValidator />
+            <MudGrid Justify="Justify.Center">
+                <MudItem xs="6">
+                    <MudCard>
+                        <MudCardContent>
+                            <MudTextField Label="Email" Class="mt-3" @bind-Value="user.Email" For="@(() => user.Email)" />
+                            <MudTextField Label="Password" Class="mt-3" @bind-Value="user.Password" For="@(() => user.Password)" InputType="InputType.Password" />
+                        </MudCardContent>
+                        <MudCardActions>
+                            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Disabled="@_loader" Class="ml-auto">
+                                @if (_loader)
+                                {
+                                    <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
+                                    <MudText Class="ms-2">Login</MudText>
+                                }
+                                else
+                                {
+                                    <MudText>Login</MudText>
+                                }
+                            </MudButton>
+                        </MudCardActions>
+                    </MudCard>
+                </MudItem>
+            </MudGrid>
+        </EditForm>
+    </MudItem>
+</MudGrid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<EditForm Model="user" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <InputText @bind-Value="user.Email" id="email" class="form-control" />
+        <ValidationMessage For="@(()=> user.Email)" />
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <InputText @bind-Value="user.Password" typeof="password" id="password" class="form-control" />
+        <ValidationMessage For="@(()=> user.Password)" />
+    </div>
+
+    <ValidationSummary />
+
+    <button type="submit" class="btn btn-primary btn-lg"> Sign In </button>
+</EditForm>
+*@
+
+@code {
+    //string PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+    //bool isShowPasswor;
+    //InputType PasswordInput = InputType.Password;
+
+    bool _loader = false;
+    private UserLogin user = new UserLogin();
+    private async void OnValidSubmit()
+    {
+        _loader = true;
+        var result = await authService.LogIn(user);
+        if (result.Success)
+        {
+            await localStorageService.SetItemAsync<string>("authToken", result.Data);
+            await authenticationStateProvider.GetAuthenticationStateAsync();
+            navigationManager.NavigateTo("/");
+        }
+        else
+        {
+            toastService.ShowError(result.Message);
+        }
+        _loader = false;
+    }
+    //void ButtonTestclick()
+    //{
+    //    if (isShowPasswor)
+    //    {
+    //        PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+    //        PasswordInput = InputType.Password;
+    //    }
+    //    else
+    //    {
+    //        isShowPasswor = true;
+    //        PasswordInputIcon = Icons.Material.Filled.Visibility;
+    //        PasswordInput = InputType.Text;
+    //    }
+    //    isShowPasswor = !isShowPasswor;
+    //}
+
+}

@@ -1,0 +1,29 @@
+﻿@using System.Net.Http
+@using System.Net.Http.Json
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.AspNetCore.Components.WebAssembly.Http
+@using Microsoft.JSInterop
+@using Tahalil.BlazorUI
+@using Tahalil.BlazorUI.Shared
+
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+
+@using Blazored.LocalStorage
+
+@using Blazored.Toast;
+@using Blazored.Toast.Services;
+
+@using MudBlazor
+
+@inject IAuthService authService
+@inject IToastService toastService
+@inject IAuthService authService
+@inject AuthenticationStateProvider authenticationStateProvider
+@inject ILocalStorageService localStorageService 
+@inject NavigationManager navigationManager 
+@inject HttpClient Http
+

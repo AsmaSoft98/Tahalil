@@ -1,0 +1,39 @@
+﻿@inherits LayoutComponentBase
+
+@*<MudThemeProvider IsDarkMode="true" />*@
+<MudThemeProvider Theme="MyCustomTheme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudMainContent>
+    <MudContainer MaxWidth="MaxWidth.Medium" Class="d-flex align-center flex-grow-1 gap-4" 
+                        Style="position:absolute;top:40%;left:25%">
+        @Body
+    </MudContainer>
+</MudMainContent>
+
+@code {
+
+}
+
+@code {
+    MudTheme MyCustomTheme = new MudTheme()
+        {
+            //Palette = new Palette()
+            //{
+            //    Primary = Colors.Teal.Accent2,
+            //    Secondary = new MudBlazor.Utilities.MudColor("#0E363C"),
+            //    AppbarBackground = new MudBlazor.Utilities.MudColor("#0E363C"),
+            //    TextPrimary = "#0E363C"
+            //},
+            Palette = new Palette()
+            {
+                Primary = Colors.LightGreen.Default,
+                Background = Colors.Grey.Lighten5,
+                DrawerBackground = "#000000",
+                DrawerText = "#FFF",
+                AppbarBackground = Colors.LightGreen.Default,
+                //Colors.Orange.Accent4,
+            },
+        };
+}

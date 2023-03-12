@@ -1,0 +1,12 @@
+C:\Users\PC\source\repos\Tahalil.API\Tahalil.Models\bin\Debug\net7.0\Tahalil.Models.deps.json
+C:\Users\PC\source\repos\Tahalil.API\Tahalil.Models\bin\Debug\net7.0\Tahalil.Models.dll
+C:\Users\PC\source\repos\Tahalil.API\Tahalil.Models\bin\Debug\net7.0\Tahalil.Models.pdb
+C:\Users\PC\source\repos\Tahalil.API\Tahalil.Models\obj\Debug\net7.0\Tahalil.Models.csproj.AssemblyReference.cache
+C:\Users\PC\source\repos\Tahalil.API\Tahalil.Models\obj\Debug\net7.0\Tahalil.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\source\repos\Tahalil.API\Tahalil.Models\obj\Debug\net7.0\Tahalil.Models.AssemblyInfoInputs.cache
+C:\Users\PC\source\repos\Tahalil.API\Tahalil.Models\obj\Debug\net7.0\Tahalil.Models.AssemblyInfo.cs
+C:\Users\PC\source\repos\Tahalil.API\Tahalil.Models\obj\Debug\net7.0\Tahalil.Models.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\Tahalil.API\Tahalil.Models\obj\Debug\net7.0\Tahalil.Models.dll
+C:\Users\PC\source\repos\Tahalil.API\Tahalil.Models\obj\Debug\net7.0\refint\Tahalil.Models.dll
+C:\Users\PC\source\repos\Tahalil.API\Tahalil.Models\obj\Debug\net7.0\Tahalil.Models.pdb
+C:\Users\PC\source\repos\Tahalil.API\Tahalil.Models\obj\Debug\net7.0\ref\Tahalil.Models.dll
