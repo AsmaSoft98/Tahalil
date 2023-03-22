@@ -19,4 +19,8 @@
     <ProjectReference Include="..\Tahalil.Models\Tahalil.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
 </Project>

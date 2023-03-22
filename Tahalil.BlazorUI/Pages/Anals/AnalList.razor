@@ -1,205 +1,80 @@
 ﻿@page "/analslist"
-<h3>AnalList</h3>
+
+@attribute [Authorize]
+@using System.Security.Claims;
+<h3>Liste Des Analyses</h3>
 
 <MudContainer>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Site Id</th>
-                <th>Reason</th>
-                <th>Details</th>
-                <th>Assigned To</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in list)
-            {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Mnt</td>
-                   
-                    
-                </tr>
-            }
-        </tbody>
-    </table>
+    @if (list == null || isLoading)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        @*<div class="d-flex justify-center mt-6">
+            <MudButton Variant="Variant.Outlined"  Class="pa-2 mx-2">&larr;</MudButton>
+            <MudButton Variant="Variant.Outlined"  Class="pa-2 mx-2">&rarr;</MudButton>
+        </div>
+        <MudChipSet Filter="true" Mandatory="true" Class="mt-12 mb-12">
+            <MudChip Text="Center" SelectedColor="Color.Primary" Default="true" />
+            <MudChip Text="Top" SelectedColor="Color.Primary" />
+            <MudChip Text="Bottom" SelectedColor="Color.Primary" />
+            <MudChip Text="Left" SelectedColor="Color.Primary" />
+            <MudChip Text="Left Top" SelectedColor="Color.Primary" />
+        </MudChipSet>*@
 
-
-    <table class="table table-striped table-bordered table-sm">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>State</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var order in list)
-            {
-                <tr>
-                    <td>@order.Id</td>
-                    <td>@order.Jour.ToString()</td>
-                    <td>@order.PrescriptId</td>
-                    <td><button class="btn btn-danger" >Delete</button></td>
-                </tr>
-            }
-        </tbody>
-    </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-   @* <MudGrid>
-        @foreach (var item in list)
-        {
-            <MudItem xs="4" Class="mb-3">
-                <MudCard>
-                    <MudCardHeader>
-                        <CardHeaderContent>
-                            <MudText Typo="Typo.h6">@(item.User.Email.Length > 11 ? item.User.Email.Substring(0, 11) : item.User.Email)</MudText>
-                                <MudText Typo="Typo.subtitle2">(@item.codeAnal)</MudText>
+        <MudGrid Spacing="3">
+        <Virtualize Items="@list" Context="item" ItemSize="190" OverscanCount="10">
+            <ItemContent>
+                <MudItem xs="12" md="4" Class="mb-3">
+                    <MudCard Outlined="true" Class="rounded-lg">
+                        <MudCardHeader>
+                            <CardHeaderContent>
+                                <MudAvatar Color="Color.Dark">A</MudAvatar>
+                                <MudText Typo="Typo.h6">@item.User.Name</MudText>
+                                <MudText Typo="Typo.subtitle2" Align="Align.End">(@item.User.Email)</MudText>
                             </CardHeaderContent>
                         </MudCardHeader>
                         <MudCardContent>
-                            <MudText Typo="Typo.body2">Field1: @item.Jour</MudText>
-                            <MudText Typo="Typo.body2">Field2: @item.Mnt</MudText>
-                            <MudText Typo="Typo.body2">Field3: @item.PrescriptId</MudText>
-                            <MudText Typo="Typo.body2">Field4: @item.User.Name</MudText>
-
+                            <MudText Typo="Typo.body2">Le: @item.Jour.ToString("yyyy/MM/dd")</MudText>
+                            <MudDivider Class="mb-4 mt-2" Style="background-color:#1c74b4" />
+                            <MudText Typo="Typo.body2" Align="Align.End">Montant: @item.Mnt</MudText>
+                            <MudText Typo="Typo.body2" Align="Align.End">Field4: @item.codeAnal</MudText>
                         </MudCardContent>
                         <MudCardActions>
                             <MudButton Variant="Variant.Text" Color="Color.Primary" Class="ml-auto">Manage</MudButton>
                         </MudCardActions>
                     </MudCard>
                 </MudItem>
-        }
-    </MudGrid>
-
-
-
-
-
-*@
-
-
-    @*@if (anals.Count > 0)
-    {*@
-
-
-    @*<Virtualize Items="@list" Context="item" ItemSize="190" OverscanCount="10">
-             <ItemContent>
-        <MudItem xs="12" Class="mb-3">
-            <MudCard Class="my-4" Style="display: grid; grid-template-columns: 1fr 1fr 1fr;">
-                <MudCardHeader>
-                    <CardHeaderContent>
-                        <MudText Typo="Typo.h6">@(item.User.Email.Length > 5 ? item.User.Email.Substring(0, 5) : item.User.Email)</MudText>
-                            <MudText Typo="Typo.subtitle2">(@item.codeAnal)</MudText>
-                        </CardHeaderContent>
-                    </MudCardHeader>
-
-                        <MudCardContent>
-                            <MudText Typo="Typo.body2">Field1: @item.Id</MudText>
-                            <MudText Typo="Typo.body2">Field2: @item.Jour</MudText>
-                            
-                            <MudText Typo="Typo.body2">Field4: @item.PrescriptId</MudText>
-                            <MudText Typo="Typo.body2">Field5: @item.codeAnal</MudText>
-                        </MudCardContent>
-                <MudText Style="text-transform: capitalize" Typo="Typo.caption">@item.Mnt</MudText>
-            </MudCard>
-            </MudItem>
             </ItemContent>
         </Virtualize>
-*@
-    @*}*@
 
-    @*<MudDataGrid Items="@anals">
-    <Columns>
-    <HierarchyColumn T="Anal" />
-    <Column T="Anal" Field="codeAnal">
-    <CellTemplate>
-    <span> @context.Item.PrescriptId</span>
-    </CellTemplate>
-    </Column>
-    </Columns>
-    <ChildRowContent>
-    <MudCard>
-    <MudCardHeader>
-    <CardHeaderContent>
-    <MudText Typo="Typo.h6">@context.Item.Jour</MudText>
-    </CardHeaderContent>
-    </MudCardHeader>
-    <MudCardContent>
-    <MudText>Woah, check this flag out!</MudText>
-    <span class="flag flag-lg">@context.Item.Mnt</span>
-    </MudCardContent>
-    </MudCard>
-    </ChildRowContent>
-    <PagerContent>
-    <MudDataGridPager T="Anal" />
-    </PagerContent>
-    </MudDataGrid>*@
-
-
-    @* <MudTable Elevation="25" Items="list">
-
-        <HeaderContent>
-            <MudTh>Student Name</MudTh>
-            <MudTh>Class Name</MudTh>
-            <MudTh>Country</MudTh>
-            <MudTh>DOB</MudTh>
-            <MudTh>Created On</MudTh>
-            <MudTh>Updated On</MudTh>
-            <MudTh>Actions</MudTh>
-        </HeaderContent>
-        <RowTemplate>
-
-            <MudTd DataLabel="Id">@context.Id</MudTd>
-            <MudTd DataLabel="ClassName">@(context.ClassId != null ? context.ClassId.ClassName : "N/A")</MudTd>
-                <MudTd DataLabel="CountryName">@(context.CountryId != null ? context.CountryId.Name : "N/A")</MudTd>
-             
-           <MudTd DataLabel="Jour">@context.Jour</MudTd>
-           
-           <MudTd DataLabel="">
-                    <MudFab  Color="Color.Primary" Icon="@Icons.Material.Filled.Edit" Size="Size.Small" IconSize="Size.Small" />
-                    <MudFab Color="Color.Secondary" Icon="@Icons.Material.Filled.Delete" Size="Size.Small" IconSize="Size.Small" />
-                </MudTd>
-            </RowTemplate>
-    </MudTable> *@
-
+    </MudGrid>
+    }
 </MudContainer>
 
-    @inject HttpClient HttpClient
-    @code {
-    List<Anal> list = new List<Anal>();
-    bool isLoading = false;
+@using Tahalil.BlazorUI.Extensions;
 
-    private async Task loadData()
-    {
-        isLoading = true;
-        try
-        {
-            list = await HttpClient.GetFromJsonAsync<List<Anal>>("api/Anal");
-        }
-        catch (HttpRequestException ex)
-        {
-            var msg = ex.Message;
-            Console.WriteLine(msg); //https://github.com/dotnet/aspnetcore/issues repo
-        }
-        isLoading = false;
-    }
+@code
+{
+        [CascadingParameter]
+        private Task<AuthenticationState> AuthenticationState { get; set; }
+
+        //[Inject] private AuthenticationStateProvider _authState { get; set; }
+        List<Anal> list = new List<Anal>();
+        bool isLoading = false;
+        string UserId;
+
     protected override async Task OnInitializedAsync()
     {
-        loadData();
+        
+            isLoading = true;
+
+            var authState = await AuthenticationState;
+            var userId = AuthStateUtils.GetUserIdFromAuthState(authState);
+
+            list = await Http.GetFromJsonAsync<List<Anal>>($"api/anal/anals/{userId}");
+            isLoading = false;
+  
     }
 }

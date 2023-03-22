@@ -1,19 +1,16 @@
 ﻿
 <MudNavMenu>
     <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
-    <MudNavLink Href="/analslist" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.ShoppingBasket">Mes Analyses</MudNavLink>
-
-  @*  <AuthorizeView Roles="Prescript">
-        <Authorized>*@
-             <MudNavLink Href="" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Report">Résumé</MudNavLink>
-    @* </Authorized>
+    <AuthorizeView Roles="Admin, Prescript, Patient">
+        <MudNavLink Href="/analslist" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.MedicalServices">
+            Liste Analyses
+        </MudNavLink>
+    </AuthorizeView>
+    <AuthorizeView Roles="Prescript">
+        <MudNavLink Href="" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Report">Résumé</MudNavLink>
     </AuthorizeView>
     <AuthorizeView Roles="Admin">
-        <Authorized>*@
-            <MudNavLink Href="" Icon="@Icons.Material.Filled.Dashboard">Dashboard</MudNavLink>
-            <MudNavLink Href="" Icon="@Icons.Material.Filled.People">Liste Patients</MudNavLink>
-            
-           
-        @*</Authorized>
-    </AuthorizeView>*@
+        <MudNavLink Href="/dashboard" Icon="@Icons.Material.Filled.Dashboard">Dashboard</MudNavLink>
+        <MudNavLink Href="" Icon="@Icons.Material.Filled.People">Liste Patients</MudNavLink>
+    </AuthorizeView>
 </MudNavMenu>

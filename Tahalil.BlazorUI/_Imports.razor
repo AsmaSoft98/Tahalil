@@ -20,10 +20,10 @@
 @using MudBlazor
 
 @inject IAuthService authService
-@inject IToastService toastService
+@*@inject IToastService toastService*@
 @inject IAuthService authService
 @inject AuthenticationStateProvider authenticationStateProvider
 @inject ILocalStorageService localStorageService 
 @inject NavigationManager navigationManager 
 @inject HttpClient Http
-
+@inject ISnackbar Snackbar

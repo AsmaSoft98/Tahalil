@@ -1,9 +1,164 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<MudContainer Fixed=true>
+    <MudGrid Justify=Justify.Center Spacing="4">
+        <MudItem xs="12" sm="12" >
+        <MudText Typo="Typo.h5">Welcome to Medal 2023's official website!</MudText>
+        </MudItem>
+       
+        <MudItem xs="12" sm="6" md="4">
+            <MudButton>
+                <MudIcon Icon="@Icons.Material.Filled.HelpCenter" Style="color: #005897;" Size="Size.Large" Class="mr-1" />
+                <div>
+                    <MudText Class="d-block" Align="Align.Left" Typo="Typo.h6" Style="font-weight: 600; line-height: 1;">FAQ</MudText>
+                    <MudText Class="d-block" Typo="Typo.body2" Style="font-weight: 400; line-height: 1;">Trouvez facilement les réponses de vos soucis</MudText>
+                </div>
+            </MudButton>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="4">
+            <MudButton>
+                <MudIcon Icon="@Icons.Material.Filled.MenuBook" Color="Color.Primary" Size="Size.Large" Class="mr-1" />
+                <div>
+                    <MudText Class="d-block" Align="Align.Left" Typo="Typo.h6" Style="font-weight: 600; line-height: 1;">Faites nous confiance</MudText>
+                    <MudText Class="d-block" Typo="Typo.body2" Style="font-weight: 400; line-height: 1;"> La fiabilité de vos test est notre principal souci</MudText>
+                </div>
+            </MudButton>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="4">
+            <MudButton>
+                <MudIcon Icon="@Icons.Material.Filled.SmartDisplay" Style="color: #CED8E9;" Size="Size.Large" Class="mr-1" />
+                <div>
+                    <MudText Class="d-block" Align="Align.Left" Typo="Typo.h6" Style="font-weight: 600; line-height: 1;">Tutorials</MudText>
+                    <MudText Class="d-block" Typo="Typo.body2" Style="font-weight: 400; line-height: 1;">Video tutorial playlist</MudText>
+                </div>
+            </MudButton>
+        </MudItem>
+    
+        
+        
+        <MudGrid>
+            <br />
+            <MudDivider DividerType="DividerType.FullWidth" Class=" ma-8 border-3 border-solid mud-border-primary" />
+            <br />
+        <MudItem xs="12" sm="6" md="3">
+            
+                <MudCard Style="align-items:center; color:white; background-color:#27272f;"  Elevation="25" Class="rounded-lg pb-4">
+                    @* <MudCardMedia Image="img/img2.jpg" Class="align-center justify-center">
+                    </MudCardMedia>*@
+                    <MudCardContent Class="align-center justify-center">
+                        <MudText Align="Align.Center" Typo="Typo.body1" Color="Color.Surface">
+                            <strong>Analyses de laboratoire</strong>
+                        </MudText>
+                        <MudText Align="Align.Center" Typo="Typo.body2">
+                            un laboratoire médical peut effectuer une gamme d'analyses de sang, d'urine et d'autres liquides corporels pour aider à diagnostiquer les maladies.
+                        </MudText>
+                    </MudCardContent>
+                </MudCard>
+                </MudItem>
+            <MudItem xs="12" sm="6" md="3">
+                <MudCard Elevation="0" Style="background-color:#EEF5F8">
+                    @*<MudCardMedia Image="img/img3.jpg" Class="align-center justify-center">
+                    </MudCardMedia>*@
+                    <MudCardContent Class="align-center justify-center">
+                        <MudText Align="Align.Center" Typo="Typo.body1" Color="Color.Secondary">
+                            <strong>Tests de dépistage</strong>
+                        </MudText>
+                        <MudText Align="Align.Center" Typo="Typo.body2">
+                            Les laboratoires médicaux peuvent effectuer des tests de dépistage pour détecter les maladies transmissibles telles que le VIH, l'hépatite et la syphilis.
+                        </MudText>
+                    </MudCardContent>
+                </MudCard>
+                </MudItem>
+            <MudItem xs="12" sm="6" md="3">
+                <MudCard Elevation="0" Style="background-color: #efefef;" >
+                    @* <MudCardMedia Image="img/img4.jpg" Class="align-center justify-center">
+                    </MudCardMedia>*@
+                    <MudCardContent Class="align-center justify-center">
+                        <MudText Align="Align.Center" Typo="Typo.body1" Color="Color.Error">
+                            <strong>Services de microbiologie</strong>
+                        </MudText>
+                        <MudText Align="Align.Center" Typo="Typo.body2">
+                            les laboratoires médicaux peuvent effectuer des tests de culture pour identifier les micro-organismes responsables des infections.
+                        </MudText>
+                    </MudCardContent>
+                </MudCard>
+                </MudItem>
+            <MudItem xs="12" sm="6" md="3">
+                <MudCard Elevation="0" Style="background-color: darkorange;">
+                    @*  <MudCardMedia Image="Images/Index/organization.png" Class="align-center justify-center">
+                    </MudCardMedia>*@
+                    <MudCardContent Class="align-center justify-center">
+                        <MudText Align="Align.Center" Typo="Typo.body1" Color="Color.Surface">
+                            <strong>Services de pathologie</strong>
+                        </MudText>
+                        <MudText Align="Align.Center" Typo="Typo.body2">
+                            les laboratoires médicaux peuvent effectuer des biopsies et d'autres tests pour aider à diagnostiquer le cancer et d'autres maladies.
+                        </MudText>
+                    </MudCardContent>
+                </MudCard>
 
-<h1>Hello, world!</h1>
+        </MudItem>
 
-Welcome to your new app.
+        </MudGrid>
+        <br />
+        <br />
+        <MudDivider />
+    </MudGrid>
+</MudContainer>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

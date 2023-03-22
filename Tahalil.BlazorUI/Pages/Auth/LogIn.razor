@@ -1,106 +1,85 @@
-﻿
-@page "/login"
+﻿@page "/login"
 @layout LoginLayout
 
- @*<EditForm Model="@user" OnValidSubmit="OnValidSubmit">
-    <MudGrid Style="height:100vh; width:100%; margin:0;">
-        <MudItem xs="12" sm="12" Class="" Style="background-image: url(img/rizki-dwi-yd1wWWilf4o-unsplash.jpg); background-repeat: no-repeat; background-size: cover; background-position: center; " />
-        <MudPaper Elevation="5" Class="pa-8 rounded-lg" Width="95%" MaxWidth="500px" Height="500px" Style="position:absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; background: linear-gradient(0deg, rgba(34,193,195,0.5021358885351015) 0%, #ddd 50%, rgba(0,212,255,0.3536765047816002) 100%);">
-            <MudText Typo="Typo.h4" Class="ma-4" Align="@Align.Center">Login</MudText>
-            <MudItem xs="10" sm="10" md="8" Class="my-4 mt-8" Style="margin:auto; display:flex;">
-                <MudTextField T="string" @bind-Value="@(user.Email)" Label="Email" Required="true" Immediate="true"  HelperText="&nbsp;" Variant="Variant.Filled" Margin="Margin.Dense" InputType="InputType.Text" Class="mud-input-controll"></MudTextField>
-            </MudItem>
-            <MudItem xs="10" sm="10" md="8" Class="mt-6" Style="margin:auto; display:flex;">
-                <MudTextField T="string" @bind-Value="@user.Password" Required="true" Label="Password" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" Margin="Margin.Dense" InputType="@PasswordInput" OnAdornmentClick="ButtonTestclick" Immediate="true" HelperText="&nbsp;" />
-            </MudItem>
-            <MudText Typo="Typo.body2" Class="" Align="@Align.Center" Style="justify-content: center;" Color="Color.Error">Messages</MudText>
-
-            <MudButton OnClick="OnValidSubmit" Variant="Variant.Filled" Class="mt-16 rounded" Color="Color.Primary" Style="width: 50%; max-width: 500px; text-transform: none; font-size: larger; margin:auto; display:flex;">Login</MudButton>
-        </MudPaper>
-    </MudGrid>
-    </EditForm>*@
-
-
-
-
-
-<MudGrid Justify="Justify.Center">
-    <MudItem xs="12" sm="12" Class="" Style="background-image: url(img/img1.jpg); background-repeat: no-repeat; background-size: cover; background-position: center; " />
-
-    <MudItem xs="12">
-        <EditForm Model="@user" OnValidSubmit="OnValidSubmit">
-            <DataAnnotationsValidator />
-            <MudGrid Justify="Justify.Center">
-                <MudItem xs="6">
-                    <MudCard>
-                        <MudCardContent>
-                            <MudTextField Label="Email" Class="mt-3" @bind-Value="user.Email" For="@(() => user.Email)" />
-                            <MudTextField Label="Password" Class="mt-3" @bind-Value="user.Password" For="@(() => user.Password)" InputType="InputType.Password" />
-                        </MudCardContent>
-                        <MudCardActions>
-                            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Disabled="@_loader" Class="ml-auto">
-                                @if (_loader)
-                                {
-                                    <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
-                                    <MudText Class="ms-2">Login</MudText>
-                                }
-                                else
-                                {
-                                    <MudText>Login</MudText>
-                                }
-                            </MudButton>
-                        </MudCardActions>
-                    </MudCard>
+<EditForm Model="@user" OnValidSubmit="OnValidSubmit">
+    <MudGrid>
+        <DataAnnotationsValidator />
+        <MudItem xs="12" sm="7">
+            <MudItem xs="12" Class="pt-0 pr-7 pl-7">
+                <MudItem xs="12" Class="d-flex justify-center mb-0">
+                    <MudPaper Class="pa-4 ma-1 mt-10 rounded-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2261a1" width="48px"
+                             height="48px">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
+                        </svg>
+                    </MudPaper>
                 </MudItem>
-            </MudGrid>
-        </EditForm>
-    </MudItem>
-</MudGrid>
+                <MudItem xs="12" Class="mb-0 pa-0">
+                    <MudTextField T="string"
+                                  Label="User Email"
+                                  Variant="Variant.Text"
+                                  Margin="Margin.None"
+                                  @bind-Value="user.Email"
+                                  For="@(() => user.Email)"
+                                  Class="mb-1 pa-0" />
+                </MudItem>
 
+                <MudItem xs="12" Class="mb-0">
+                    <MudTextField T="string"
+                                  Label="Password"
+                                  Variant="Variant.Text"
+                                  @bind-Value="user.Password"
+                                  For="@(() => user.Password)"
+                                  InputType="@PasswordInput"
+                                  Class="mb-0 pa-0"
+                                  Adornment="Adornment.End"
+                                  AdornmentIcon="@PasswordInputIcon"
+                                  OnAdornmentClick="TogglePasswordVisibility" />
+                </MudItem>
 
+                <MudItem xs="12" Class="d-flex justify-center mt-4 mb-4 pa-2">
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled"
+                               Color="Color.Secondary"
+                               Size="Size.Large"  FullWidth="true" Style="font-size:16px;" OnClick="OnValidSubmit">
+                        LogIn
+                    </MudButton>
+                </MudItem>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@*<EditForm Model="user" OnValidSubmit="OnValidSubmit">
-    <DataAnnotationsValidator />
-
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <InputText @bind-Value="user.Email" id="email" class="form-control" />
-        <ValidationMessage For="@(()=> user.Email)" />
-    </div>
-
-    <div class="form-group">
-        <label for="password">Password:</label>
-        <InputText @bind-Value="user.Password" typeof="password" id="password" class="form-control" />
-        <ValidationMessage For="@(()=> user.Password)" />
-    </div>
-
-    <ValidationSummary />
-
-    <button type="submit" class="btn btn-primary btn-lg"> Sign In </button>
+                <MudItem xs="12" Class="d-flex justify-end align-center">
+                    <MudLink Class="pa-1 mx-1" Style="display:block;" Href="">
+                        Forgot Password
+                    </MudLink>
+                </MudItem>
+            </MudItem>
+        </MudItem>
+        @*<MudItem sm="5" Class="d-none d-sm-flex pa-0 login-p">
+            </MudItem>
+        </MudItem>*@
+        <MudItem xs="5" sm="5" Class="d-none d-sm-flex pa-0">
+            <MudImage Src="svg/login.png" ObjectFit="ObjectFit.Fill" Height="452" Class="rounded-lg "/>
+        </MudItem>
+    </MudGrid>
 </EditForm>
-*@
+
+<style>
+    .login-p {
+        background-image: url(img/img3.jpg);
+        height: 452px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 0px 18px 18px 0px;
+        top: 12px;
+        position: relative;
+        left: -14px;
+    }
+</style>
+
 
 @code {
-    //string PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
-    //bool isShowPasswor;
-    //InputType PasswordInput = InputType.Password;
+    bool PasswordVisibility;
+    InputType PasswordInput = InputType.Password;
+    string PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
 
     bool _loader = false;
     private UserLogin user = new UserLogin();
@@ -108,32 +87,43 @@
     {
         _loader = true;
         var result = await authService.LogIn(user);
-        if (result.Success)
+        try
         {
-            await localStorageService.SetItemAsync<string>("authToken", result.Data);
-            await authenticationStateProvider.GetAuthenticationStateAsync();
-            navigationManager.NavigateTo("/");
+            if (result.Success)
+            {
+                await localStorageService.SetItemAsync<string>("authToken", result.Data);
+                await authenticationStateProvider.GetAuthenticationStateAsync();
+                navigationManager.NavigateTo("/");
+            }
+            else
+            {
+                Snackbar.Add(result.Message, Severity.Error);
+           
+            }
+
         }
-        else
+        catch
         {
-            toastService.ShowError(result.Message);
+
         }
         _loader = false;
     }
-    //void ButtonTestclick()
-    //{
-    //    if (isShowPasswor)
-    //    {
-    //        PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
-    //        PasswordInput = InputType.Password;
-    //    }
-    //    else
-    //    {
-    //        isShowPasswor = true;
-    //        PasswordInputIcon = Icons.Material.Filled.Visibility;
-    //        PasswordInput = InputType.Text;
-    //    }
-    //    isShowPasswor = !isShowPasswor;
-    //}
-
+    void TogglePasswordVisibility()
+    {
+        if (PasswordVisibility)
+        {
+            PasswordVisibility = false;
+            PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+            PasswordInput = InputType.Password;
+        }
+        else
+        {
+            PasswordVisibility = true;
+            PasswordInputIcon = Icons.Material.Filled.Visibility;
+            PasswordInput = InputType.Text;
+        }
+    }
 }
+
+
+

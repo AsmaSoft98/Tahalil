@@ -69,16 +69,24 @@
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
-      "Id": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\wwwroot\\img\\img1.jpg",
-      "PackagePath": "staticwebassets\\img\\img1.jpg"
-    },
-    {
       "Id": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\wwwroot\\sample-data\\weather.json",
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\wwwroot\\svg\\login.png",
+      "PackagePath": "staticwebassets\\svg\\login.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\wwwroot\\svg\\not-found.svg",
+      "PackagePath": "staticwebassets\\svg\\not-found.svg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\wwwroot\\svg\\register.png",
+      "PackagePath": "staticwebassets\\svg\\register.png"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Tahalil.BlazorUI.Microsoft.AspNetCore.StaticWebAssets.props",

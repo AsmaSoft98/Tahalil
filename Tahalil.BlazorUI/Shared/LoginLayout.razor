@@ -1,39 +1,54 @@
-﻿@inherits LayoutComponentBase
+﻿@using Tahalil.BlazorUI.Themes;
+@inherits LayoutComponentBase
 
-@*<MudThemeProvider IsDarkMode="true" />*@
-<MudThemeProvider Theme="MyCustomTheme" />
-<MudDialogProvider />
+<MudThemeProvider Theme="_currentTheme" />
+<MudSnackbarProvider />
+<MudDialogProvider FullWidth="true"
+				   MaxWidth="MaxWidth.ExtraSmall"
+				   CloseButton="false"
+				   DisableBackdropClick="true"
+				   NoHeader="false"
+				   Position="DialogPosition.TopCenter" />
 <MudSnackbarProvider />
 
-<MudMainContent>
-    <MudContainer MaxWidth="MaxWidth.Medium" Class="d-flex align-center flex-grow-1 gap-4" 
-                        Style="position:absolute;top:40%;left:25%">
-        @Body
-    </MudContainer>
-</MudMainContent>
+@*<div style="position: fixed;top: 51px;text-align: center;align-items: center;width: 100%; " 
+			class="d-none d-sm-flex">
+	<img src="img/" height="80" alt="Logo Institucional" style="margin: auto;">
+</div>
+*@
+<MudContainer MaxWidth="MaxWidth.Medium" Class="d-flex align-center" Style="height: 100vh; align-items:center">
+	<MudPaper Elevation="25" Class="pa-0" Style="width: 700px; height: 450px; margin:auto">
+		@Body
+	</MudPaper>
+</MudContainer>
+
+@*<div style="position: fixed;text-align: center;align-items: center;width: 100%;bottom:0" class="d-none d-sm-flex">
+	<img src="img/" height="80" alt="Logo Institucional" style="margin: auto;" />
+</div>
+*@
+
+
+<style>
+	.mud-breadcrumb-separator {
+		padding: 0 6px;
+	}
+	.mud-breadcrumb-item.mud-disabled > a {
+		color: #2261a1;
+	}
+	.mud-appbar.mud-appbar-dense .mud-toolbar-appbar {
+		height: calc(var(--mud-appbar-height) - var(--mud-appbar-height)/3);
+	}
+	.mud-button-text-transform {
+		text-transform: none !important;
+	}
+	.mud-input>input.mud-input-root, div.mud-input-slot.mud-input-root {
+		font-size: 0.75rem !important;
+	}
+</style>
+
+
 
 @code {
-
-}
-
-@code {
-    MudTheme MyCustomTheme = new MudTheme()
-        {
-            //Palette = new Palette()
-            //{
-            //    Primary = Colors.Teal.Accent2,
-            //    Secondary = new MudBlazor.Utilities.MudColor("#0E363C"),
-            //    AppbarBackground = new MudBlazor.Utilities.MudColor("#0E363C"),
-            //    TextPrimary = "#0E363C"
-            //},
-            Palette = new Palette()
-            {
-                Primary = Colors.LightGreen.Default,
-                Background = Colors.Grey.Lighten5,
-                DrawerBackground = "#000000",
-                DrawerText = "#FFF",
-                AppbarBackground = Colors.LightGreen.Default,
-                //Colors.Orange.Accent4,
-            },
-        };
+	private MudTheme _currentTheme = new MudBlazorAdminDashboard();
+   
 }

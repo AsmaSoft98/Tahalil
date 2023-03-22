@@ -1,15 +1,16 @@
 ﻿@using Blazored.Toast.Configuration;
 @using System.Security.Claims;
+@using Tahalil.BlazorUI.Themes;
 @inherits LayoutComponentBase
 
-<MudThemeProvider Theme="MyCustomTheme" />
+
+<MudThemeProvider Theme="_currentTheme" />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
-
-<MudLayout Class="deep-purple lighten-5" style="height:100vh">
+<MudLayout  >
     <MudAppBar Elevation="0">
-        <MudText Typo="Typo.h6">Pawsome</MudText>
+        <MudText Typo="Typo.h6">Medal2023</MudText>
         <MudSpacer />
         <LoginDisplay />
     </MudAppBar>
@@ -19,6 +20,8 @@
                Variant="@DrawerVariant.Mini"
                OpenMiniOnHover="true">
         <MudDrawerHeader Class="pa-3">
+            <MudText>@espaceUser</MudText>
+                      
             <MudIcon Icon="@Icons.Material.Filled.AdminPanelSettings" Size="Size.Large" />
         </MudDrawerHeader>
         <NavMenu />
@@ -28,6 +31,9 @@
         <MudContainer MaxWidth="MaxWidth.Large" Class="my-16 pt-16">
             @Body
         </MudContainer>
+        <MudScrollToTop>
+            <MudFab Color="Color.Primary" Icon="@Icons.Filled.ArrowCircleUp" />
+        </MudScrollToTop>
     </MudMainContent>
 
     <MudAppBar Bottom="true" Fixed="true" Color="Color.Dark" Elevation="1">
@@ -52,14 +58,32 @@
 
     bool _menuDrawerOpen = false;
     void MenuDrawerToggle() => _menuDrawerOpen = !_menuDrawerOpen;
-
+    string espaceUser = "Medal";
     protected override async Task OnInitializedAsync()
     {
         var authState = await authenticationStateProvider.GetAuthenticationStateAsync();
-
+        espaceUser = "";
+        if (authState.User.IsInRole("Admin"))
+        {
+            espaceUser = "Espace administrateur";
+        }
+        else if (authState.User.IsInRole("Prescript"))
+        {
+            espaceUser = "Espace prescripteur";
+        }
+        else if (authState.User.IsInRole("Patient"))
+        {
+            espaceUser = "Patient";
+        }
+       
 
     }
-
+    private MudTheme _currentTheme = new MudBlazorAdminDashboard();
+   
+    
+    
+    
+    
     MudTheme MyCustomTheme = new MudTheme()
         {
             Palette = new Palette()

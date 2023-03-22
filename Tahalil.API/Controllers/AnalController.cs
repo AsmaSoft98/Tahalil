@@ -8,7 +8,7 @@ namespace Tahalil.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class AnalController : ControllerBase
     {
         private readonly DataContext _context;
@@ -32,7 +32,7 @@ namespace Tahalil.API.Controllers
             return await _context.Anal.FindAsync(id);
         }
 
-        [HttpGet("Anals/{UserId}")]
+        [HttpGet("anals/{UserId}")]
         public async Task<ActionResult<List<Anal>>> GetUserAnal(int UserId)
         {
            
@@ -45,12 +45,11 @@ namespace Tahalil.API.Controllers
             IQueryable<Anal> anal = _context.Anal.Include(u => u.User);
 
             switch (user.Role)
-            {
-                case "Prescript":
-                    anal = anal.Where(m => m.UserId == UserId && m.User.Role == UserRole.Prescript);
-                    break;
+            { 
                 case "Admin":
-                    anal = anal.Where(m => m.UserId == UserId && m.User.Role == UserRole.Admin);
+                    break;
+                case "Prescript":
+                    anal = anal.Where(m => m.PrescriptId == UserId);
                     break;
                 case "Patient":
                     anal = anal.Where(m => m.UserId == UserId && m.User.Role == UserRole.Patient);
@@ -58,7 +57,6 @@ namespace Tahalil.API.Controllers
                 default:
                     throw new ArgumentException($"Invalid role: {user.Role}");
             }
-
             return await anal.ToListAsync();
         }
     }

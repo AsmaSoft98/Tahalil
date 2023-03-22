@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cwuTxFGSvs1azMfEj68r4LrE+7PxqMgELhH5jsmTm6I=",
+  "Hash": "A08B+GtVSWCvN43dwaJTpXVOKZyBGOI7t1EM0ODAkX0=",
   "Source": "Tahalil.BlazorUI",
   "BasePath": "/",
   "Mode": "Root",
@@ -7395,23 +7395,6 @@
       "OriginalItemSpec": "wwwroot\\icon-192.png"
     },
     {
-      "Identity": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\wwwroot\\img\\img1.jpg",
-      "SourceId": "Tahalil.BlazorUI",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "img/img1.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\img1.jpg"
-    },
-    {
       "Identity": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\wwwroot\\index.html",
       "SourceId": "Tahalil.BlazorUI",
       "SourceType": "Discovered",
@@ -7444,6 +7427,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\sample-data\\weather.json"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\wwwroot\\svg\\login.png",
+      "SourceId": "Tahalil.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "svg/login.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\svg\\login.png"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\wwwroot\\svg\\not-found.svg",
+      "SourceId": "Tahalil.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "svg/not-found.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\svg\\not-found.svg"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\wwwroot\\svg\\register.png",
+      "SourceId": "Tahalil.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "svg/register.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\svg\\register.png"
     }
   ]
 }
