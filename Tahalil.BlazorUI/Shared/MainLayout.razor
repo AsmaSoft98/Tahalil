@@ -3,7 +3,6 @@
 @using Tahalil.BlazorUI.Themes;
 @inherits LayoutComponentBase
 
-
 <MudThemeProvider Theme="_currentTheme" />
 <MudDialogProvider />
 <MudSnackbarProvider />
@@ -48,11 +47,6 @@
     </MudAppBar>>
 </MudLayout>
 
-<BlazoredToasts Position="ToastPosition.BottomRight"
-                Timeout="10"
-                IconType="IconType.FontAwesome"
-                SuccessClass="success-toast-override"
-                SuccessIcon="fa fa-thumbs-up" />
 @code {
     bool _userMenuOpen = false;
 
@@ -79,27 +73,21 @@
 
     }
     private MudTheme _currentTheme = new MudBlazorAdminDashboard();
-   
     
-    
-    
-    
-    MudTheme MyCustomTheme = new MudTheme()
-        {
-            Palette = new Palette()
-            {
-                Primary = "#de1573",
-                Secondary = Colors.DeepPurple.Accent2,
-                Background = Colors.Grey.Lighten5,
-                AppbarBackground = Colors.Blue.Darken1,
-                DrawerBackground = "#FFF",
-                DrawerText = "rgba(0,0,0, 0.7)",
-                Success = "#06d79c",
+    //MudTheme MyCustomTheme = new MudTheme()
+    //    {
+    //        Palette = new Palette()
+    //        {
+    //            Primary = "#de1573",
+    //            Secondary = Colors.DeepPurple.Accent2,
+    //            Background = Colors.Grey.Lighten5,
+    //            AppbarBackground = Colors.Blue.Darken1,
+    //            DrawerBackground = "#FFF",
+    //            DrawerText = "rgba(0,0,0, 0.7)",
+    //            Success = "#06d79c",
 
-            },
-        };
-
-
+    //        },
+    //    };
 }
 
 

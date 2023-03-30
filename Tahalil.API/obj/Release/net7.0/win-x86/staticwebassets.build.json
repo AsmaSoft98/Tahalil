@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "gCvtM1VqiDGamZKlXPFN9SgdsabaMDFbyPwD+Ht7xxM=",
+  "Source": "Tahalil.API",
+  "BasePath": "_content/Tahalil.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Tahalil.API\\wwwroot",
+      "Source": "Tahalil.API",
+      "ContentRoot": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.API\\wwwroot\\",
+      "BasePath": "_content/Tahalil.API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

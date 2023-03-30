@@ -1,5 +1,4 @@
 ﻿
-
 <AuthorizeView>
     <Authorized>
         <MudAvatar Color="Color.Secondary" Class="ma-2" @onmouseover="() => _userMenuOpen = true">
@@ -7,7 +6,6 @@
         </MudAvatar>
          <b>@context.User.Identity.Name!</b>
   
-        @*<MudButton Variant="Variant.Filled" Color="Color.Secondary" class="ml-2" OnClick="Logout">Logout</MudButton>*@
         <MudPopover AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight"
                     Open="@_userMenuOpen" @onmouseleave="() => _userMenuOpen = false">
             <MudTabs Outlined="false" MinimumTabWidth="30px" Position="Position.Right">
@@ -18,7 +16,6 @@
     </Authorized>
     <NotAuthorized>
         <MudButton Link="/login" Variant="Variant.Filled" Color="Color.Secondary" class="ml-2">Login</MudButton>
-        
     </NotAuthorized>
 </AuthorizeView>
 
@@ -28,6 +25,5 @@
     {
         await localStorageService.RemoveItemAsync("authToken");
         await authenticationStateProvider.GetAuthenticationStateAsync();
-        //navigationManager.NavigateTo("/");
     }
 }

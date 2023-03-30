@@ -1,6 +1,4 @@
 ﻿
-
-
 namespace Tahalil.BlazorUI.Services.AuthService
 {
     public interface IAuthService

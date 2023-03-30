@@ -69,6 +69,10 @@
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\wwwroot\\img\\330187294_580969614092174_5682895191701563047_n.jpg",
+      "PackagePath": "staticwebassets\\img\\330187294_580969614092174_5682895191701563047_n.jpg"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },

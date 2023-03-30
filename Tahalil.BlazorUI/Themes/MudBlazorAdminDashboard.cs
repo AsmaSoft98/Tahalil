@@ -128,9 +128,6 @@ namespace Tahalil.BlazorUI.Themes
 			Shadows = new Shadow();
 
 			ZIndex = new ZIndex();
-
-
-
 		}
 	}
 }

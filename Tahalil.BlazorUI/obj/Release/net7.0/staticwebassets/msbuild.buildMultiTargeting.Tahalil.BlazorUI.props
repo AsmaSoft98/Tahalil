@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Tahalil.BlazorUI.props" />
+</Project>

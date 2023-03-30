@@ -41,7 +41,9 @@
                 <MudItem xs="12" Class="d-flex justify-center mt-4 mb-4 pa-2">
                     <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled"
                                Color="Color.Secondary"
-                               Size="Size.Large"  FullWidth="true" Style="font-size:16px;" OnClick="OnValidSubmit">
+                               Size="Size.Large"  FullWidth="true" Style="font-size:16px;" 
+                               Disabled=_loader
+                               OnClick="OnValidSubmit">
                         LogIn
                     </MudButton>
                 </MudItem>
@@ -102,9 +104,9 @@
             }
 
         }
-        catch
+        catch (Exception ex)
         {
-
+            Snackbar.Add(ex.Message, Severity.Error);
         }
         _loader = false;
     }

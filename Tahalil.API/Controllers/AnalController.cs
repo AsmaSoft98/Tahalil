@@ -8,7 +8,9 @@ namespace Tahalil.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+
+   
+    //[Authorize]
     public class AnalController : ControllerBase
     {
         private readonly DataContext _context;
@@ -19,8 +21,9 @@ namespace Tahalil.API.Controllers
         }
         [HttpGet]
         public async Task<ActionResult<List<Anal>>> GetAnals()
-        
+
         {
+
             return await _context.Anal
                         .Include(u => u.User)
                         .ToListAsync();
@@ -35,7 +38,7 @@ namespace Tahalil.API.Controllers
         [HttpGet("anals/{UserId}")]
         public async Task<ActionResult<List<Anal>>> GetUserAnal(int UserId)
         {
-           
+
             User? user = await _context.User.FirstOrDefaultAsync(u => u.Id == UserId);
 
             if (user == null)
@@ -45,7 +48,7 @@ namespace Tahalil.API.Controllers
             IQueryable<Anal> anal = _context.Anal.Include(u => u.User);
 
             switch (user.Role)
-            { 
+            {
                 case "Admin":
                     break;
                 case "Prescript":
@@ -58,6 +61,21 @@ namespace Tahalil.API.Controllers
                     throw new ArgumentException($"Invalid role: {user.Role}");
             }
             return await anal.ToListAsync();
+        }
+
+
+        [HttpGet( "GetStatus")]
+        public async Task<string> GetLicenses()
+        {
+            try
+            {
+               
+                return "licenses";
+            }
+            catch (Exception ex)
+            {
+                 throw;
+            }
         }
     }
 }

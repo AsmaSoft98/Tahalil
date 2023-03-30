@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "en619WFLrFvKIQkBDYahGMDWLqsVGoyCWVl+k1z1Z+hsR8bgtrjdcLnFxfa3lwK0nCMB95bcj0ig4cUaR9ZbVg==",
+  "dgSpecHash": "u/4T4FtUqgDleFsvR8uCDpXI+LkDygeoyXGSfolt7l1iacnGQI0H+5fEOkR3e7Gf4gFgSHn/Qr2UmiTFfQkaTg==",
   "success": true,
   "projectFilePath": "C:\\Users\\PC\\source\\repos\\Tahalil.API\\Tahalil.BlazorUI\\Tahalil.BlazorUI.csproj",
   "expectedPackageFiles": [
@@ -34,8 +34,7 @@
     "C:\\Users\\PC\\.nuget\\packages\\mudblazor\\6.1.9\\mudblazor.6.1.9.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.io.pipelines\\7.0.0\\system.io.pipelines.7.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
-    "C:\\Users\\PC\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
-    "C:\\Users\\PC\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\7.0.2\\microsoft.netcore.app.runtime.mono.browser-wasm.7.0.2.nupkg.sha512"
+    "C:\\Users\\PC\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }
